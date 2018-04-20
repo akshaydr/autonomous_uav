@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+<arg name="baudrate" default="57600"/>
+<arg name="device" default="/dev/ttyACM0"/>
+<arg name="enable_control" default="False"/>
+
+<node pkg="roscopter" type="roscopter_node.py" name="roscopter_node"
+  args="--baudrate=$(arg baudrate) --device=$(arg device) --enable-control=$(arg enable_control)" output="screen" />
+</launch>
