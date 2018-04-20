@@ -1,0 +1,3 @@
+[submodule "roscopter"]
+	path = roscopter
+	url = https://github.com/cberzan/roscopter.git
