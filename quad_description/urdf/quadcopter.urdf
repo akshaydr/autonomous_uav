@@ -1,0 +1,255 @@
+<robot
+  name="Final assem.SLDASM">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00243214611979047 0.163623874080779 -0.000370721411112952"
+        rpy="0 0 0" />
+      <mass
+        value="0.705203745013749" />
+      <inertia
+        ixx="0.00750176757942947"
+        ixy="-3.65142036300989E-06"
+        ixz="5.99684631863895E-08"
+        iyy="0.0140183994410422"
+        iyz="6.51406103573975E-06"
+        izz="0.00750182842561328" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link1">
+    <inertial>
+      <origin
+        xyz="1.13398094581108E-07 0.018557752875765 -1.87756172165265E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0102593008371315" />
+      <inertia
+        ixx="2.65332934706913E-07"
+        ixy="1.07452306067892E-12"
+        ixz="1.11371547381558E-15"
+        iyy="2.56841556528266E-15"
+        iyz="-1.90672774636616E-12"
+        izz="2.6533293342829E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop1"
+    type="continuous">
+    <origin
+      xyz="-0.176124443135205 -0.178787876216547 0.19801927995734"
+      rpy="1.5707963267949 1.52181408478657E-17 0.251171953074523" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="1.13649176097796E-07 0.0185576795208406 -1.87693104669595E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0102591079734528" />
+      <inertia
+        ixx="2.6533161571798E-07"
+        ixy="1.07186627685145E-12"
+        ixz="1.1132730843891E-15"
+        iyy="2.56809212585286E-15"
+        iyz="-1.9072665256953E-12"
+        izz="2.6533161443849E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop2"
+    type="continuous">
+    <origin
+      xyz="-0.176054559418305 0.178895017978848 0.19801927995734"
+      rpy="1.5707963267949 4.98335905490269E-17 2.19080886047877" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link3">
+    <inertial>
+      <origin
+        xyz="1.13260943318538E-07 0.0185577528712945 -1.87344296381786E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0102593008234245" />
+      <inertia
+        ixx="2.65332934630216E-07"
+        ixy="1.07593860721963E-12"
+        ixz="1.11449064792866E-15"
+        iyy="2.57045462503078E-15"
+        iyz="-1.91097874359284E-12"
+        izz="2.65332933350206E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop3"
+    type="continuous">
+    <origin
+      xyz="0.18162833477709 0.178825134261949 0.19801927995734"
+      rpy="1.5707963267949 1.52181408478657E-17 0.251171953074523" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link4">
+    <inertial>
+      <origin
+        xyz="1.13598980958085E-07 0.0185576795169345 -1.87546819852003E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.0102591079590175" />
+      <inertia
+        ixx="2.65331615652612E-07"
+        ixy="1.07238432719736E-12"
+        ixz="1.11355125530294E-15"
+        iyy="2.56881961145873E-15"
+        iyz="-1.90877631550849E-12"
+        izz="2.65331614372633E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_description/meshes/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop4"
+    type="continuous">
+    <origin
+      xyz="0.18155845106019 -0.178857759933446 0.19801927995734"
+      rpy="1.5707963267949 -3.46232409087429E-17 -2.5406028590227" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
