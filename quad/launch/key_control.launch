@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="quad" type="key_entry.py" name="key_entry"/>
+  <node pkg="quad" type="keboard_test.py" name="keboard_test" output="screen"/>
+</launch>
