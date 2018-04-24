@@ -1,0 +1,165 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="quad_robot">
+
+  <xacro:macro name="motor" params="name x y z ixx ixy ixz iyy iyz izz file jx jy jz jroll jpitch jyaw">
+    <link name="${name}">
+      <inertial>
+        <origin xyz="${x} ${y} ${z}" rpy="0 0 0"/>
+        <mass value="0.0102591079722968"/>
+        <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${file}"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${file}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="base_link_${name}" type="continuous">
+      <origin xyz="${jx} ${jy} ${jz}" rpy="${jroll} ${jpitch} ${jyaw}"/>
+      <parent link="base_link"/>
+      <child link="${name}"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+  </xacro:macro>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.001132448756594 0.000385803098481615 0.162670407152059" rpy="0 0 0"/>
+      <mass value="0.840254267046389"/>
+      <inertia ixx="0.0080393433482603" ixy="1.02214302839741E-06" ixz="7.02409484644395E-05" iyy="0.00807478868432974" iyz="5.694285545546E-06" izz="0.0140723127325883"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://quad_description/meshes/base_link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://quad_description/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Add the quad parameters based on your specific model -->
+  <xacro:motor
+    name="prop_left_back"
+    x="4.6215470089761E-08"
+    y="0.0185576795212508"
+    z="-2.14472247989095E-07"
+    ixx="2.65331616278177E-07"
+    ixy="3.91278771287575E-13"
+    ixz="4.81989725544736E-16"
+    iyy="2.56820799820415E-15"
+    iyz="-2.15280193998034E-12"
+    izz="2.65331613897853E-07"
+    file="package://quad_description/meshes/Link1.STL"
+    jx="-0.176124443135205"
+    jy="-0.178787876216547"
+    jz="0.19801927995734"
+    jroll="1.5707963267949"
+    jpitch="1.52181408478657E-17"
+    jyaw="0.251171953074523"/>
+
+  <xacro:motor
+    name="prop_right_back"
+    x="-2.00113389969836E-07"
+    y="0.0185577330072202"
+    z="-8.9052632212816E-08"
+    ixx="2.65332611333388E-07"
+    ixy="-2.03072742963355E-12"
+    ixz="-9.19263946529207E-16"
+    iyy="2.56993825277625E-15"
+    iyz="-8.25014750129984E-13"
+    izz="2.65332613128908E-07"
+    file="package://quad_description/meshes/Link2.STL"
+    jx="-0.176054559418305"
+    jy="0.178895017978848"
+    jz="0.19801927995734"
+    jroll="1.5707963267949"
+    jpitch="4.98335905490269E-17"
+    jyaw="2.19080886047877"/>
+
+  <xacro:motor
+    name="prop_left_front"
+    x="-2.08922263988942E-07"
+    y="0.018557734547937"
+    z="6.73178055521362E-08"
+    ixx="2.65332606631845E-07"
+    ixy="-2.05932903845259E-12"
+    ixz="7.89415112586658E-16"
+    iyy="2.56769122953722E-15"
+    iyz="7.36488142937077E-13"
+    izz="2.65332608656656E-07"
+    file="package://quad_description/meshes/Link3.STL"
+    jx="0.18162833477709"
+    jy="0.178825134261949"
+    jz="0.19801927995734"
+    jroll="1.5707963267949"
+    jpitch="1.52181408478657E-17"
+    jyaw="0.251171953074523"/>
+
+  <xacro:motor
+    name="prop_right_front"
+    x="-1.02205847410386E-07"
+    y="0.0185577377292006"
+    z="-1.93949221849454E-07"
+    ixx="2.65332708258588E-07"
+    ixy="-1.08376829871117E-12"
+    ixz="-1.08772670304881E-15"
+    iyy="2.56899137095445E-15"
+    iyz="-1.9029061418775E-12"
+    izz="2.65332706892347E-07"
+    file="package://quad_description/meshes/Link4.STL"
+    jx="0.18155845106019"
+    jy="-0.178857759933446"
+    jz="0.19801927995734"
+    jroll="1.5707963267949"
+    jpitch="-3.46232409087429E-17"
+    jyaw="-2.5406028590227"/>
+
+  <link name="Lidar">
+    <inertial>
+      <origin xyz="-1.1635066247094E-06 7.46440683850602E-06 -0.0184374226869707" rpy="0 0 0"/>
+      <mass value="0.0131789241976587"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://quad_description/meshes/Lidar.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://quad_description/meshes/Lidar.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="revolute" type="continuous">
+    <origin xyz="-0.0189949475112854 0 0.22611927995734" rpy="-3.14159265358979 -5.99575093438171E-17 -1.77504932828959"/>
+    <parent link="base_link"/>
+    <child link="Lidar"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+</robot>

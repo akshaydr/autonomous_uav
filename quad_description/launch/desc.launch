@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="model" default="$(find quad_description)/xacro/quadcopter.xacro"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+</launch>
